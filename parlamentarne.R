@@ -1,4 +1,4 @@
-﻿# dane z mapami - wczytanie gotowych
+# dane z mapami - wczytanie gotowych
 load("mapy/mapy.RData")
 
 library(dplyr)
@@ -78,14 +78,14 @@ kto_wygral <- select(wyniki.sejm.powiaty, TERYT, Głosy.ważne,
 							X7...Komitet.Wyborczy.Wyborców..Kukiz.15.,
 							X8...Komitet.Wyborczy.Nowoczesna.Ryszarda.Petru)
 # procenty dla wszystkich
-kto_wygral <- mutate(kto_wygral,PO=100*X2...Komitet.Wyborczy.Platforma.Obywatelska.RP/Głosy.ważne)
-kto_wygral <- mutate(kto_wygral,PiS=100*X1...Komitet.Wyborczy.Prawo.i.Sprawiedliwość/Głosy.ważne)
-kto_wygral <- mutate(kto_wygral,Razem=100*X3...Komitet.Wyborczy.Partia.Razem/Głosy.ważne)
-kto_wygral <- mutate(kto_wygral,KORWiN=100*X4...Komitet.Wyborczy.KORWiN/Głosy.ważne)
-kto_wygral <- mutate(kto_wygral,PSL=100*X5...Komitet.Wyborczy.Polskie.Stronnictwo.Ludowe/Głosy.ważne)
-kto_wygral <- mutate(kto_wygral,ZLew=100*X6...Koalicyjny.Komitet.Wyborczy.Zjednoczona.Lewica.SLD.TR.PPS.UP.Zieloni/Głosy.ważne)
-kto_wygral <- mutate(kto_wygral,Kukiz15=100*X7...Komitet.Wyborczy.Wyborców..Kukiz.15./Głosy.ważne)
-kto_wygral <- mutate(kto_wygral,Nowoczesna=100*X8...Komitet.Wyborczy.Nowoczesna.Ryszarda.Petru/Głosy.ważne)
+kto_wygral <- mutate(kto_wygral,PO=100*X2...Komitet.Wyborczy.Platforma.Obywatelska.RP/Głosy.ważne, 
+										PiS=100*X1...Komitet.Wyborczy.Prawo.i.Sprawiedliwość/Głosy.ważne, 
+										Razem=100*X3...Komitet.Wyborczy.Partia.Razem/Głosy.ważne, 
+										KORWiN=100*X4...Komitet.Wyborczy.KORWiN/Głosy.ważne, 
+										PSL=100*X5...Komitet.Wyborczy.Polskie.Stronnictwo.Ludowe/Głosy.ważne, 
+										ZLew=100*X6...Koalicyjny.Komitet.Wyborczy.Zjednoczona.Lewica.SLD.TR.PPS.UP.Zieloni/Głosy.ważne, 
+										Kukiz15=100*X7...Komitet.Wyborczy.Wyborców..Kukiz.15./Głosy.ważne, 
+										Nowoczesna=100*X8...Komitet.Wyborczy.Nowoczesna.Ryszarda.Petru/Głosy.ważne)
 
 # tylko te istotne kolumy
 kto_wygral <- select(kto_wygral, TERYT, PO, PiS, Razem, KORWiN, PSL, ZLew, Kukiz15, Nowoczesna)
